@@ -20,6 +20,7 @@ class RedirectGateway extends AbstractGateway
             'merchantId' => '',
             'secret' => '',
             'account' => 'internet',
+            'version' => 1,
             'testMode' => false,
             'checkoutEndpoint' => 'https://hpp.realexpayments.com/pay',
         );
@@ -63,6 +64,16 @@ class RedirectGateway extends AbstractGateway
     public function setCheckoutEndpoint($value)
     {
         return $this->setParameter('checkoutEndpoint', $value);
+    }
+
+    public function setVersion($value)
+    {
+        return $this->setParameter('version', $value);
+    }
+
+    public function getVersion()
+    {
+        return $this->getParameter('version');
     }
 
     public function authorize(array $parameters = array())

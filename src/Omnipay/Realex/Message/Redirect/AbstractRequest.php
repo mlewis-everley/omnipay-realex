@@ -87,6 +87,16 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->getParameter('eci');
     }
 
+    public function setVersion($value)
+    {
+        return $this->setParameter('version', $value);
+    }
+
+    public function getVersion()
+    {
+        return $this->getParameter('version');
+    }
+
     public function setNotifyUrl($value)
     {
         return $this->setParameter('notifyUrl', $value);
@@ -119,6 +129,12 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
             'TIMESTAMP' => gmdate('YmdHis'),
             'AUTO_SETTLE_FLAG' => $autoSettle
         );
+
+        $version = $this->getVersion();
+        if (isset($version)) {
+            $data['HPP_VERSION'] = $version;
+        }
+
         $data['SHA1HASH'] = $this->createSignature($data, 'sha1', $card);
         return $data;
     }
