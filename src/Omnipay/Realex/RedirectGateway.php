@@ -20,7 +20,7 @@ class RedirectGateway extends AbstractGateway
             'merchantId' => '',
             'secret' => '',
             'account' => 'internet',
-            'version' => 1,
+            'version' => 2,
             'testMode' => false,
             'checkoutEndpoint' => 'https://hpp.realexpayments.com/pay',
         );
